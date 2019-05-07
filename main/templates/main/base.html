@@ -52,33 +52,7 @@
          </div>
       </nav>
 
-        <!-- <nav class="navbar navbar-expand-lg navbar-dark bg-dark"><a class="navbar-brand" href="{% url 'main:home' %}">Strona</a>
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button> -->
 
-
-<!--
-            {% if request.user.is_authenticated %} <span class="text-warning"><small>Zalogowany: {{ request.user }} |
-                <a href="{% url 'main:logout' %}"> Wyloguj się</a>
-            {% else %}
-                <a href="{% url 'main:login' %}">Logowanie</a> / <a href="{% url 'main:signup' %}">Rejestracja</a>
-            {% endif %}
-            </small></span>
-
-    </nav>
-            {% if messages %}
-            <ul class="messages">
-                {% for message in messages %}
-                <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>
-                    {% if message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}Important:
-                    {% endif %}
-                    {{ message }}
-                </li>
-                {% endfor %}
-            </ul>
-            {% endif %}
- -->
 
         {% block content %}
         {% endblock %}
@@ -96,4 +70,25 @@
         <script src="{% static 'main/js/script.js' %}"></script>
 
   </body>
+
+
+              {% if request.user.is_authenticated %} <span class="text-warning"><small>Zalogowany: {{ request.user }} |
+                  <a href="{% url 'main:logout' %}"> Wyloguj się</a>
+              {% else %}
+                  <a href="{% url 'main:login' %}">Logowanie</a> / <a href="{% url 'main:signup' %}">Rejestracja</a>
+              {% endif %}
+              </small></span>
+
+
+              {% if messages %}
+              <ul class="messages">
+                  {% for message in messages %}
+                  <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>
+                      {% if message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}Important:
+                      {% endif %}
+                      {{ message }}
+                  </li>
+                  {% endfor %}
+              </ul>
+              {% endif %}
 </html>
