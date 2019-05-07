@@ -4,16 +4,39 @@
 {% block title %}Logowanie{% endblock %}
 
 {% block content %}
-    <div class="container" style="width: 400px">
 
-      <h3 class="info-title">Logowanie</h3>
 
-      <form method="post">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">Login</button>
-      </form>
-    </div>
-    <hr>
+
+
+
+    <section>
+       <div class="container">
+          <div class="row">
+             <div class="col-md-12">
+                <h1>
+                   What the hell are you waiting for? <br>
+                   Say hello to me!
+                </h1>
+                <div class="container" style="width: 400px">
+
+                  <h3 class="info-title">Logowanie</h3>
+
+                  <form method="post">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                    <button type="submit">Login</button>
+                  </form>
+                </div>
+                <hr>
+             </div>
+          </div>
+          <div class="row margin-top-45">
+             <div class="col-md-12">
+                <img class="img-responsive margin-top-45" src="img/5.jpg" alt="me">
+             </div>
+          </div>
+       </div>
+    
+    </section>
 
 {% endblock %}
