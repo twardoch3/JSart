@@ -1,13 +1,23 @@
 # Created by https://www.gitignore.io/api/python,django,visualstudiocode
 
 ### Django ###
+
+JSart/__pycache__/settings.cpython-37.pyc
+JSart/__pycache__/settings.cpython-37.pyc
+
 *.log
 *.pot
 *.pyc
 __pycache__/
+*/*/*/__pycache__/
+JSart/__pycache__/
+*/*/__pycache__/
+
+*/__pycache__/
 local_settings.py
 db.sqlite3
 media
+*.pyc
 
 ### Python ###
 # Byte-compiled / optimized / DLL files

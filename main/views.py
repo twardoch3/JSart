@@ -15,6 +15,20 @@ class Home(View):
         return render(request, 'main/home.html')
         # return HttpResponse("HOME PAGE")
 
+class Contact(View):
+    # Home view
+    def get(self, request):
+        return render(request, 'main/contact.html')
+        # return HttpResponse("HOME PAGE")
+
+
+class About(View):
+    # Home view
+    def get(self, request):
+        return render(request, 'main/contact.html')
+        # return HttpResponse("HOME PAGE")
+
+
 
 class SignUPView(View):
     # Creating a new user
