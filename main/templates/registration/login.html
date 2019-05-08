@@ -14,16 +14,17 @@
           <div class="row">
              <div class="col-md-12">
                 <h1>
-                   What the hell are you waiting for? <br>
-                   Say hello to me!
+                   Log in please to enjoy <br>
+                full feature web app !
                 </h1>
                 <div class="container" style="width: 400px">
 
                   <h3 class="info-title">Logowanie</h3>
-
+<h5>
                   <form method="post">
                     {% csrf_token %}
                     {{ form.as_p }}
+                    </h5>
                     <button type="submit">Login</button>
                   </form>
                 </div>
@@ -32,11 +33,11 @@
           </div>
           <div class="row margin-top-45">
              <div class="col-md-12">
-                <img class="img-responsive margin-top-45" src="img/5.jpg" alt="me">
+                <!-- <img class="img-responsive margin-top-45" src="img/5.jpg" alt="me"> -->
              </div>
           </div>
        </div>
-    
+
     </section>
 
 {% endblock %}
