@@ -1,0 +1,51 @@
+{% extends 'main/base.html' %}
+
+{% block content %}
+
+<div class="span12">
+
+  <section>
+     <div class="container">
+        <div class="row">
+           <div class="col-md-12">
+              <h1>
+                 Sign in to publish your work , <br>
+                 Be able to join contests !
+
+                 <h2 class="info-title">Rejestracja</h2>
+                <h4>
+                 <form method="post">
+                   {% csrf_token %}
+                   {% for field in form %}
+                     <p>
+                       {{ field.label_tag }}<br>
+                       {{ field }}
+                       {% if field.help_text %}
+                         <small style="color: grey">{{ field.help_text }}</small>
+                       {% endif %}
+                       {% for error in field.errors %}
+                         <p style="color: red">{{ error }}</p>
+                       {% endfor %}
+                   {% endfor %}
+                   <button type="submit">Zarejestruj się</button>
+                 </form>
+                 </h4>
+               </div>
+               <hr>
+               </div>
+               </div>
+
+              <!-- <h4><a href="mailto:mateusz.hryciuk@outlook.com">mateusz.hryciuk@outlook.com</a></h4> -->
+           </div>
+        </div>
+        <!-- <div class="row margin-top-45">
+           <div class="col-md-12">
+              <img class="img-responsive margin-top-45" src="img/5.jpg" alt="me">
+           </div>
+        </div>
+     </div>
+     </div> -->
+  </section>
+
+
+{% endblock %}
