@@ -2,57 +2,117 @@
 
 {% load static %}
 
+
+
+
+
 <html>
     <head><meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="description" content="">
+      <meta name="author" content="">
+
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-    <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+
+    <link rel="stylesheet" type="text/css" href="{% static 'main/css/bootstrap.css' %}">
+      <link rel="stylesheet" type="text/css" href="{% static 'main/css/bootstrap.min.css' %}">
+      <link rel="stylesheet" type="text/css" href="{% static 'main/css/lightbox.css' %}">
+      <link rel="stylesheet" type="text/css" href="{% static 'main/css/style.css' %}">
+
 
     <title>
-        {% block title %}Wynajem apartamentów{% endblock %}
+        {% block title %}JSart{% endblock %}
     </title>
     </head>
 
     <body>
 
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark"><a class="navbar-brand" href="{% url 'main:home' %}">Strona</a>
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
+      <nav class="navbar navbar-default navbar-fixed-top">
+         <div class="col-md-12">
+            <div class="nav">
+               <button class="btn-nav">
+               <span class="icon-bar inverted top"></span>
+               <span class="icon-bar inverted middle"></span>
+               <span class="icon-bar inverted bottom"></span>
+               </button>
+            </div>
+            <a class="navbar-brand" href="{% url 'main:logout' %}">
+            <img class="logo" src="{% static 'main/img/logo.png' %}" alt="logo">
+            </a>
+            <div class="nav-content hideNav hidden">
+               <ul class="nav-list vcenter">
+                  <li class="nav-item"><a class="item-anchor" href="{% url 'main:home' %}">Home</a></li>
+
+                  <li class="nav-item"><a class="item-anchor" href="portfolio.html">Portfolio</a></li>
+                  <li class="nav-item"><a class="item-anchor" href="about.html">Autors</a></li>
+                    <li class="nav-item"><a class="item-anchor" href="{% url 'main:contact' %}">Contests</a></li>
+                      <li class="nav-item"><a class="item-anchor" href="{% url 'main:contact' %}">Contact</a></li>
+                  <li class="nav-item"><a class="item-anchor" href="{% url 'main:about' %}">About</a></li>
+
+                  {% if request.user.is_authenticated %}
+                  <li class="nav-item">
+
+                      
+                      <a href="{% url 'main:logout' %}"> Log out </a>  </li>
+
+                  <li class="nav-item"> Logged in : {{ request.user }}</a></li>
+
+
+                  {% else %}
+                  <li class="nav-item">
+
+                      <a href="{% url 'main:login' %}">Log in</a> / <a href="{% url 'main:signup' %}">Sign in</a>
+                    </li>
+
+                  {% endif %}</li>
 
 
 
-            {% if request.user.is_authenticated %} <span class="text-warning"><small>Zalogowany: {{ request.user }} |
-                <a href="{% url 'main:logout' %}"> Wyloguj się</a>
-            {% else %}
-                <a href="{% url 'main:login' %}">Logowanie</a> / <a href="{% url 'main:signup' %}">Rejestracja</a>
-            {% endif %}
-            </small></span>
 
-    </nav>
-            {% if messages %}
-            <ul class="messages">
-                {% for message in messages %}
-                <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>
-                    {% if message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}Important:
-                    {% endif %}
-                    {{ message }}
-                </li>
-                {% endfor %}
-            </ul>
-            {% endif %}
+               </ul>
+            </div>
+         </div>
+      </nav>
+</li>
 
 
         {% block content %}
         {% endblock %}
 
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+        <script type "text/javascript">
+      function openSesame(){
+      window.open("http://color-wander.surge.sh/","_new");
+    }
+  </script>
 
-</body>
+        <script src="{% static 'main/js/jquery.js' %}"></script>
+        <script src="{% static 'main/js/bootstrap.min.js' %}"></script>
+        <script src="{% static 'main/js/menu-color.js' %}"></script>
+        <script src="{% static 'main/js/modernizr.js' %}"></script>
+        <script src="{% static 'main/js/script.js' %}"></script>
+
+  </body>
+
+
+              <!-- {% if request.user.is_authenticated %} <span class="text-warning"><small>Zalogowany: {{ request.user }} |
+                  <a href="{% url 'main:logout' %}"> Wyloguj się</a>
+              {% else %}
+                  <a href="{% url 'main:login' %}">Logowanie</a> / <a href="{% url 'main:signup' %}">Rejestracja</a>
+              {% endif %}
+              </small></span> -->
+
+
+              {% if messages %}
+              <ul class="messages">
+                  {% for message in messages %}
+                  <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>
+                      {% if message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}Important:
+                      {% endif %}
+                      {{ message }}
+                  </li>
+                  {% endfor %}
+              </ul>
+              {% endif %}
 </html>

@@ -29,7 +29,7 @@ SECRET_KEY = config['SECRET_KEY']
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -130,4 +130,3 @@ LOGIN_URL = '/login'
 LOGIN_REDIRECT_URL = '/main'
 LOGOUT_REDIRECT_URL = '/main'
 # MEDIA_ROOT = 'media/'
-
