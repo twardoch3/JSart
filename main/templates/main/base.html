@@ -45,7 +45,7 @@
                <ul class="nav-list vcenter">
                   <li class="nav-item"><a class="item-anchor" href="{% url 'main:home' %}">Home</a></li>
 
-                  <li class="nav-item"><a class="item-anchor" href="portfolio.html">Portfolio</a></li>
+                  <li class="nav-item"><a class="item-anchor" href="{% url 'main:portfolio' %}">Portfolio</a></li>
                   <li class="nav-item"><a class="item-anchor" href="about.html">Autors</a></li>
                     <li class="nav-item"><a class="item-anchor" href="{% url 'main:contact' %}">Contests</a></li>
                       <li class="nav-item"><a class="item-anchor" href="{% url 'main:contact' %}">Contact</a></li>
@@ -54,7 +54,7 @@
                   {% if request.user.is_authenticated %}
                   <li class="nav-item">
 
-                      
+
                       <a href="{% url 'main:logout' %}"> Log out </a>  </li>
 
                   <li class="nav-item"> Logged in : {{ request.user }}</a></li>

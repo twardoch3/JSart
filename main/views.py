@@ -15,6 +15,13 @@ class Home(View):
         return render(request, 'main/home.html')
         # return HttpResponse("HOME PAGE")
 
+class Portfolio(View):
+    # Home view
+    def get(self, request):
+        return render(request, 'main/portfolio.html')
+        # return HttpResponse("HOME PAGE")
+
+
 class Contact(View):
     # Home view
     def get(self, request):

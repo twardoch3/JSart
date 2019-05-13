@@ -4,8 +4,8 @@ from django.db import models
 
 class User(AbstractUser):
     class Meta:
-        verbose_name = 'user'
-        verbose_name_plural = 'users'
+        verbose_name = 'użytkownik'
+        verbose_name_plural = 'użytkownicy'
         ordering = ['username']
 
     def __str__(self):
@@ -15,7 +15,7 @@ class User(AbstractUser):
 class Project(models.Model):
     title = models.CharField(max_length=128, verbose_name="Tytuł projektu")
     description = models.TextField(verbose_name="Opis projektu", blank=True)
-    last_modified = models.DateTimeField(auto_now=True, verbose_name="Data/godzina edycji")
+    body = models.TextField(verbose_name="script body" , blank=True)
     user = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name="Użytkownik")
 
     def __str__(self):
