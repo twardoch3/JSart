@@ -25,7 +25,7 @@ class ProjectView(View):
     def get(self, request):
         id = request.GET['id']
 
-        return render(request, 'main/project_view.html',{'post':Project.objects.get(id=id)})
+        return render(request, 'main/project_view.html',{'projects':Project.objects.get(id=id)})
 
 
 
