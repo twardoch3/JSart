@@ -3,6 +3,9 @@ from django.db import models
 
 
 class User(AbstractUser):
+    cv = models.TextField(verbose_name="Coś o sobie...", blank=True)
+    image = models.ImageField(null=True, blank=True)
+    
     class Meta:
         verbose_name = 'author'
         verbose_name_plural = 'authors'

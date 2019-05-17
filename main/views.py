@@ -54,7 +54,12 @@ class SignUPView(View):
     def post(self, request):
         form = MainUserCreationForm(request.POST)
         if form.is_valid():
-            form.save()
+            new_user = form.save()
+            new_user.email = form.cleaned_data.get('email')
+            new_user.cv = form.cleaned_data.get('cv')
+            new_user.image = form.cleaned_data.get('image')
+            new_user.save()
+            # authenticate and login new user
             username = form.cleaned_data.get('username')
             raw_password = form.cleaned_data.get('password1')
             user = authenticate(username=username, password=raw_password)
