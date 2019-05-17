@@ -126,7 +126,7 @@ USE_TZ = True
 STATIC_URL = '/static/'
 LOGIN_URL = '/login'
 
-# MEDIA_URL = '/photos/'
+MEDIA_URL = '/media/'
 LOGIN_REDIRECT_URL = '/main'
 LOGOUT_REDIRECT_URL = '/main'
 # MEDIA_ROOT = 'media/'
