@@ -48,7 +48,7 @@ class About(View):
 class SignUPView(View):
     # Creating a new user
     def get(self, request):
-        form = UserCreationForm()
+        form = MainUserCreationForm()
         return render(request, 'registration/signup.html', {'form': form})
 
     def post(self, request):
