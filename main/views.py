@@ -10,23 +10,38 @@ from main.models import User, Project
 from main.forms import MainUserCreationForm
 
 class Home(View):
-    # Home view
+
     def get(self, request):
         return render(request, 'main/home.html')
-        # return HttpResponse("HOME PAGE")
+
+class Portfolio(View):
+
+    def get(self, request):
+        return render(request, 'main/portfolio.html' ,{'projects':Project.objects.all()})
+
+
+class ProjectView(View):
+
+    def get(self, request):
+        id = request.GET['id']
+
+        return render(request, 'main/project_view.html',{'projects':Project.objects.get(id=id)})
+
+
+
 
 class Contact(View):
-    # Home view
+
     def get(self, request):
         return render(request, 'main/contact.html')
-        # return HttpResponse("HOME PAGE")
+
 
 
 class About(View):
-    # Home view
+
     def get(self, request):
         return render(request, 'main/contact.html')
-        # return HttpResponse("HOME PAGE")
+
 
 
 
