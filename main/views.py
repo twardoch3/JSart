@@ -3,7 +3,7 @@ from django.contrib.auth import login, authenticate
 from django.contrib.auth.forms import UserCreationForm
 from django.urls import reverse, reverse_lazy
 from django.views import View
-from django.views.generic import CreateView, UpdateView, DeleteView, DetailView, ListView
+from django.views.generic import CreateView, UpdateView, DeleteView, DetailView, ListView,FormView
 from django.http import HttpResponse
 
 from main.models import User, Project
@@ -39,6 +39,7 @@ class ProjectView(View):
 class Contact(View):
 
     def get(self, request):
+        
         return render(request, 'main/contact.html')
 
 

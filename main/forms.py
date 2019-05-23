@@ -16,4 +16,4 @@ class MainUserCreationForm(forms.UserCreationForm):
 class ProjectForm(main_forms.ModelForm):
     class Meta:
         model = Project
-        fields = ['title','description','body','thumbnail']
+        fields = ['body','description']
