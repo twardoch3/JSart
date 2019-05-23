@@ -7,7 +7,7 @@ from django.views.generic import CreateView, UpdateView, DeleteView, DetailView,
 from django.http import HttpResponse
 
 from main.models import User, Project
-from main.forms import MainUserCreationForm
+from main.forms import MainUserCreationForm,ProfileForm
 
 class Home(View):
 
@@ -41,6 +41,13 @@ class About(View):
 
     def get(self, request):
         return render(request, 'main/contact.html')
+
+
+class Profile(View):
+
+    def get(self, request):
+        form = ProfileForm()
+        return render(request, 'main/profile.html', {'form': form} )
 
 
 

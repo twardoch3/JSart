@@ -11,3 +11,7 @@ class MainUserCreationForm(forms.UserCreationForm):
 
     class Meta(forms.UserCreationForm.Meta):
         model = User
+
+
+class ProfileForm(main_forms.Form):
+    pass
