@@ -7,7 +7,7 @@ from django.views.generic import CreateView, UpdateView, DeleteView, DetailView,
 from django.http import HttpResponse
 
 from main.models import User, Project
-from main.forms import MainUserCreationForm,ProfileForm
+from main.forms import MainUserCreationForm,ProjectForm
 
 class Home(View):
 
@@ -18,6 +18,12 @@ class Portfolio(View):
 
     def get(self, request):
         return render(request, 'main/portfolio.html' ,{'projects':Project.objects.all()})
+
+class Profile(View):
+
+    def get(self, request):
+        user = request.user
+        return render(request, 'profile/profile.html' ,{'projects':Project.objects.filter(user=user)})
 
 
 class ProjectView(View):
@@ -43,11 +49,16 @@ class About(View):
         return render(request, 'main/contact.html')
 
 
-class Profile(View):
+class ProjectForm(View):
 
     def get(self, request):
-        form = ProfileForm()
-        return render(request, 'main/profile.html', {'form': form} )
+        form = ProjectForm()
+        return render(request, 'profile/add_project.html', {'form': form})
+    def post(self, request):
+        form = ProjectForm(request.POST)
+        if form.is_valid():
+            form.save()
+        return render(request,'profile/add_project.html',{'form':form})
 
 
 

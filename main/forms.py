@@ -13,5 +13,7 @@ class MainUserCreationForm(forms.UserCreationForm):
         model = User
 
 
-class ProfileForm(main_forms.Form):
-    pass
+class ProjectForm(main_forms.ModelForm):
+    class Meta:
+        model = Project
+        fields = ['title','description','body','thumbnail']
