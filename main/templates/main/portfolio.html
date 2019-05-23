@@ -1,0 +1,23 @@
+{% extends "main/base.html" %}
+{% load static %}
+{% block content %}
+
+
+</br></br></br></br></br></br></br></br>
+
+      {%for project in projects%}
+       <p>Author : {{project.user}}</p>
+       </p>Title : {{project.title}}</p>
+      <a href=" {% url 'main:project_view' %}?id={{project.id}}"><img alt="project thumbnail" src={{project.thumbnail.url}} width="300"/></a>
+  
+
+       </br></br>
+
+
+
+
+      {%endfor%}
+
+
+
+{% endblock %}
