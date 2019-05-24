@@ -3,7 +3,9 @@ from django.contrib.auth import views as auth_views
 from django.conf import settings
 from django.conf.urls.static import static
 
-from main.views import Home, SignUPView , Contact , About , Portfolio ,Project, ProjectView, Authors
+
+from main.views import Home, SignUPView , Contact , About , Portfolio ,Project,ProjectView,ProjectForm,Profile,Authors
+
 
 app_name = 'main'
 urlpatterns = [
@@ -15,8 +17,13 @@ urlpatterns = [
     path('login/', auth_views.LoginView.as_view(), name="login"),
     path('logout/', auth_views.LogoutView.as_view(), {'next_page': ''}, name="logout"),
     path('signup/', SignUPView.as_view(), name="signup"),
+
+    path('profile/add_project/', ProjectForm.as_view(), name="add_project"),
+    path('profile/', Profile.as_view(), name="profile"),
+
     #authors
     path('authors/', Authors.as_view(), name="authors"),
+
 
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 

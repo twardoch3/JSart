@@ -3,11 +3,11 @@ from django.contrib.auth import login, authenticate
 from django.contrib.auth.forms import UserCreationForm
 from django.urls import reverse, reverse_lazy
 from django.views import View
-from django.views.generic import CreateView, UpdateView, DeleteView, DetailView, ListView
+from django.views.generic import CreateView, UpdateView, DeleteView, DetailView, ListView,FormView
 from django.http import HttpResponse
 
 from main.models import User, Project
-from main.forms import MainUserCreationForm
+from main.forms import MainUserCreationForm,ProjectForm
 
 class Home(View):
 
@@ -24,6 +24,12 @@ class Portfolio(View):
     def get(self, request):
         return render(request, 'main/portfolio.html' ,{'projects':Project.objects.all()})
 
+class Profile(View):
+
+    def get(self, request):
+        user = request.user
+        return render(request, 'profile/profile.html' ,{'projects':Project.objects.filter(user=user)})
+
 
 class ProjectView(View):
 
@@ -36,6 +42,7 @@ class ProjectView(View):
 class Contact(View):
 
     def get(self, request):
+        
         return render(request, 'main/contact.html')
 
 
@@ -44,6 +51,18 @@ class About(View):
 
     def get(self, request):
         return render(request, 'main/contact.html')
+
+
+class ProjectForm(View):
+
+    def get(self, request):
+        form = ProjectForm()
+        return render(request, 'profile/add_project.html', {'form': form})
+    def post(self, request):
+        form = ProjectForm(request.POST)
+        if form.is_valid():
+            form.save()
+        return render(request,'profile/add_project.html',{'form':form})
 
 
 
