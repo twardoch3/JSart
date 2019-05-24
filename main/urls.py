@@ -3,7 +3,7 @@ from django.contrib.auth import views as auth_views
 from django.conf import settings
 from django.conf.urls.static import static
 
-from main.views import Home, SignUPView , Contact , About , Portfolio ,Project,ProjectView
+from main.views import Home, SignUPView , Contact , About , Portfolio ,Project, ProjectView, Authors
 
 app_name = 'main'
 urlpatterns = [
