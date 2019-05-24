@@ -5,7 +5,7 @@ from django.db import models
 class User(AbstractUser):
     cv = models.TextField(verbose_name="Coś o sobie...", blank=True)
     image = models.ImageField(null=True, blank=True)
-    
+
     class Meta:
         verbose_name = 'author'
         verbose_name_plural = 'authors'
@@ -21,6 +21,10 @@ class Project(models.Model):
     description = models.TextField(verbose_name="description", blank=True)
     body = models.TextField(verbose_name="script body" ,null =False , blank=False )
     thumbnail = models.ImageField(upload_to='thumbs/', blank = False , null = False )
+
+
+
+
     def __str__(self):
         return f'Project: {self.title}, Author: {self.user}'
 
