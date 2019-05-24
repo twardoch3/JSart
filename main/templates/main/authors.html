@@ -6,15 +6,24 @@
 
     <h1>Authors' Projects</h1>
 
-    {% for a in authors %}
-      <h3>{{a.username}}</h3>
-    <p>Projects:</p>
-    <p>
-        {% for p in a.project_set.all %}
-        <a href="{% url 'main:project_view' p.id %}">{{p.title}}</a>,
-        {% endfor %}
-    </p>
+    <table border="1">
+        <tr>
+            <th>Username</th>
+            <th>Projects</th>
+        </tr>
+        {% for a in authors %}
+            <tr>
+                <td>{{a.username}}</td>
+                <td>
+                    {% for p in a.project_set.all %}
+                    <a href="{% url 'main:project_view' p.id %}">{{p.title}}</a>,
+                    {% endfor %}
+                </td>
 
-    {% endfor %}
+            </tr>
+        {% endfor %}
+
+    </table>
+
 
 {% endblock %}
