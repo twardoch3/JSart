@@ -13,6 +13,11 @@ class Home(View):
 
     def get(self, request):
         return render(request, 'main/home.html')
+    
+class Authors(View):
+
+    def get(self, request):
+        return render(request, 'main/authors.html' ,{'authors':User.objects.all()})    
 
 class Portfolio(View):
 
@@ -22,9 +27,7 @@ class Portfolio(View):
 
 class ProjectView(View):
 
-    def get(self, request):
-        id = request.GET['id']
-
+    def get(self, request, id):
         return render(request, 'main/project_view.html',{'projects':Project.objects.get(id=id)})
 
 
